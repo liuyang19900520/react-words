@@ -21,3 +21,18 @@ interface LoginAPIRes {
   code: number;
   token: string;
 }
+
+// 验证码的响应类型约束
+interface WordListAPIRes {
+  word: string;
+  freq: number;
+  typ: number;
+  lvl: number;
+}
+
+interface WordListAPIReq {
+  word: string;
+  freq: number;
+  typ: number[];
+  lvl: number[];
+}

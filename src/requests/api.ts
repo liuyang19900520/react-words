@@ -9,3 +9,14 @@ export const CaptchaAPI = (): Promise<CaptchaAPIRes> =>
 // 登录请求
 export const LoginAPI = (params: LoginAPIReq): Promise<LoginAPIRes> =>
   request.post("/prod-api/login", params);
+
+// WordListAPI
+export const WordListAPI = (params: WordListAPIReq): Promise<WordListAPIRes> =>
+  request.get("/listWords", {
+    params: {
+      word: params.word,
+      freq: params.freq,
+      typ: params.typ, // 传递数组，axios 会自动处理
+      lvl: params.lvl, // 传递数组
+    },
+  });
