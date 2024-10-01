@@ -26,13 +26,13 @@ interface LoginAPIRes {
 interface WordListAPIRes {
   word: string;
   freq: number;
-  typ: number;
-  lvl: number;
+  typ: string;
+  lvl: string;
 }
 
 interface WordListAPIReq {
   word: string;
   freq: number;
-  typ: number[];
-  lvl: number[];
+  typ: string[];
+  lvl: string[];
 }

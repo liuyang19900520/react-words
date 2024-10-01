@@ -12,11 +12,14 @@ export const LoginAPI = (params: LoginAPIReq): Promise<LoginAPIRes> =>
 
 // WordListAPI
 export const WordListAPI = (params: WordListAPIReq): Promise<WordListAPIRes> =>
-  request.get("/listWords", {
-    params: {
-      word: params.word,
-      freq: params.freq,
-      typ: params.typ, // 传递数组，axios 会自动处理
-      lvl: params.lvl, // 传递数组
-    },
+  request.post("/listWords", params, {
+    withCredentials: true, // 确保发送凭据（如 cookies）
+  });
+
+// 新的 API 函数，传递参数为 WordListAPIReq 的数组
+export const WordListBulkAPI = (
+  params: WordListAPIReq[]
+): Promise<WordListAPIRes> =>
+  request.post("/listWordsBulk", params, {
+    withCredentials: true, // 确保发送凭据（如 cookies）
   });

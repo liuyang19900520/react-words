@@ -15,8 +15,13 @@ type ViewProps = {
 const SelectView: React.FC<ViewProps> = ({ onSubmit }) => {
 
   const handleSubmit = (values: FieldType) => {
-    // 提交时调用 onSubmit，并将表单数据传递给父组件
-    onSubmit(values);
+    // 过滤掉值为 "" 或 undefined 的字段
+    const filteredValues = Object.fromEntries(
+      Object.entries(values).filter(([_, v]) => v !== "" && v !== undefined)
+    );
+
+    // 调用父组件的 onSubmit 回调，并传递过滤后的数据
+    onSubmit(filteredValues);
   };
 
   return (
