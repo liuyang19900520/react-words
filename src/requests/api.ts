@@ -17,9 +17,7 @@ export const WordListAPI = (params: WordListAPIReq): Promise<WordListAPIRes> =>
   });
 
 // 新的 API 函数，传递参数为 WordListAPIReq 的数组
-export const WordListBulkAPI = (
-  params: WordListAPIReq[]
-): Promise<WordListAPIRes> =>
-  request.post("/listWordsBulk", params, {
+export const WordListBulkAPI = (params: WordListAPIReq[]): Promise<string> =>
+  request.post("/listWords/bulk", params, {
     withCredentials: true, // 确保发送凭据（如 cookies）
   });
